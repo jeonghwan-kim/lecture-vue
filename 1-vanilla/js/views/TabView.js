@@ -11,6 +11,7 @@ TabView.tabNames = {
 
 TabView.setup = function (el) {
   this.init(el)
+  this.bindClick()
   return this
 }
 
@@ -29,7 +30,6 @@ TabView.bindClick = function () {
 
 TabView.onClick = function (tabName) {
   this.setActiveTab(tabName)
-  this.emit('@change', { tabName })
 }
 
 export default TabView
