@@ -11,6 +11,7 @@ TabView.tabNames = {
 
 TabView.setup = function (el) {
   this.init(el)
+  this.bindClick()
   return this
 }
 
