@@ -26,8 +26,6 @@ FormView.bindEvents = function () {
 FormView.onKeyup = function (e) {
   const enter = 13
   this.showResetBtn(this.inputEl.value.length)
-  if (!this.inputEl.value.length) this.emit('@reset')
-  if (e.keyCode !== enter) return
 }
 
 export default FormView
