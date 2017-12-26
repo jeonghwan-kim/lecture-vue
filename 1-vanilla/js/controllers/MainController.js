@@ -18,6 +18,7 @@ export default {
       .on('@change', e => this.onChangeTab(e.detail.tabName))
 
     KeywordView.setup(document.querySelector('#search-keyword'))
+      .on('@click', e => this.onClickKeyword(e.detail.keyword))
 
     ResultView.setup(document.querySelector('#search-result'))
 
@@ -61,6 +62,8 @@ export default {
   },
 
   onSearchResult(data) {
+    TabView.hide()
+    KeywordView.hide()
     ResultView.render(data)
   },
 
@@ -68,4 +71,7 @@ export default {
     debugger
   },
 
+  onClickKeyword(keyword) {
+    this.search(keyword)
+  }
 }
