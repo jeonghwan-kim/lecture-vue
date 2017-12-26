@@ -54,7 +54,7 @@ export default {
 
   fetchSearchHistory() {
     HistoryModel.list().then(data => {
-      HistoryView.render(data)
+      HistoryView.render(data).bindRemoveBtn()
     })
   },
 
@@ -93,5 +93,4 @@ export default {
   onClickHistory(keyword) {
     this.search(keyword)
   },
-
 }

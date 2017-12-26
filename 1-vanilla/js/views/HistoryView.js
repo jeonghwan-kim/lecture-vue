@@ -16,6 +16,4 @@ HistoryView.getKeywordsHtml = function (data) {
     return html
   }, '<ul class="list">') + "</ul>"
 }
-
-
 export default HistoryView
