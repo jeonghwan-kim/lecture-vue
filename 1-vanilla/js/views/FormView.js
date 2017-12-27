@@ -23,7 +23,6 @@ FormView.bindEvents = function () {
 }
 
 FormView.onKeyup = function (e) {
-  const enter = 13
   this.showResetBtn(this.inputEl.value.length)
 }
 
