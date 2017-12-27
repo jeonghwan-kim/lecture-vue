@@ -28,7 +28,7 @@ export default {
 
     ResultView.setup(document.querySelector('#search-result'))
 
-    this.selectedTab = '최근 검색어'
+    this.selectedTab = '추천 검색어'
     this.renderView()
   },
 
