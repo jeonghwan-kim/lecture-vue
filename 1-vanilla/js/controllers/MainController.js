@@ -16,16 +16,6 @@ export default {
       .on('@change', e => this.onChangeTab(e.detail.tabName))
 
     ResultView.setup(document.querySelector('#search-result'))
-
-    this.selectedTab = '추천 검색어'
-    this.renderView()
-  },
-
-  renderView() {
-    console.log(tag, 'rednerView()')
-    TabView.setActiveTab(this.selectedTab)
-
-    ResultView.hide()
   },
 
   onSubmit(input) {
