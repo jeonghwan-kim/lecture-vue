@@ -60,7 +60,8 @@
                     v-on:click="onClickKeyword(item.keyword)">
                   {{item.keyword}}
                   <span class="date">{{item.date}}</span>
-                  <button class="btn-remove"></button>
+                  <button class="btn-remove" 
+                    v-on:click.stop="onClickRemoveHistory(item.keyword)"></button>
                 </li>
               </ul>
             </div>
