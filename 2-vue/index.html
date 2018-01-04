@@ -19,35 +19,46 @@
         <button v-show="query.length" v-on:click="onReset" type="reset" class="btn-reset"></button>
       </form>
 
-      <div v-if="submitted">
-        <div v-if="searchResult.length">
-          <ul>
-            <li v-for="item in searchResult">
-              <img v-bind:src="item.image"> {{item.name}}
+      <div class="content">
+        <div v-if="submitted">
+          <div v-if="searchResult.length">
+            <ul>
+              <li v-for="item in searchResult">
+                <img v-bind:src="item.image"> {{item.name}}
+              </li>
+            </ul>
+          </div>
+          <div v-else>
+            {{query}} 검색어로 찾을수 없습니다 
+          </div>
+        </div>
+        <div v-else>
+          <ul class="tabs">
+            <li v-for="tab in tabs" v-bind:class="{active: tab === selectedTab}"
+            v-on:click="onClickTab(tab)">
+              {{tab}}
             </li>
           </ul>
-        </div>
-        <div v-else>
-           {{query}} 검색어로 찾을수 없습니다 
+
+          <div v-if="selectedTab === tabs[0]">
+            <div v-if="keywords.length">
+              <ul class="list">
+                <li v-for="(item, index) in keywords" 
+                    v-on:click="onClickKeyword(item.keyword)">
+                  <span class="number">{{index + 1}}</span> {{item.keyword}}
+                </li>
+              </ul>
+            </div>
+            <div v-else>
+              추천 검색어가 없습니다
+            </div>
+            
+          </div>
+          <div v-else>
+            최근 검색어 목록 
+          </div>
         </div>
       </div>
-      <div v-else>
-        <ul class="tabs">
-          <li v-for="tab in tabs" v-bind:class="{active: tab === selectedTab}"
-          v-on:click="onClickTab(tab)">
-            {{tab}}
-          </li>
-        </ul>
-
-        <div v-if="selectedTab === tabs[0]">
-          추천 검색어 목록 
-        </div>
-        <div v-else>
-          최근 검색어 목록 
-        </div>
-      </div>
-      
-
     </div>
   </div>
   <script src="https://unpkg.com/vue"></script>
