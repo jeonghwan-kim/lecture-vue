@@ -14,7 +14,10 @@
     </header>
 
     <div class="container">
-      {{msg}}
+      <form v-on:submit.prevent="onSubmit">
+        <input type="text" v-model="query" placeholder="검색어를 입력하세요" autofocus>
+        <button v-show="query.length" type="reset" class="btn-reset"></button>
+      </form>
     </div>
   </div>
   <script src="https://unpkg.com/vue"></script>
