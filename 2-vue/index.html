@@ -18,6 +18,21 @@
         <input type="text" v-model="query" v-on:keyup="onKeyup" placeholder="검색어를 입력하세요" autofocus>
         <button v-show="query.length" v-on:click="onReset" type="reset" class="btn-reset"></button>
       </form>
+
+      <div v-if="submitted">
+        <div v-if="searchResult.length">
+          <ul>
+            <li v-for="item in searchResult">
+              <img v-bind:src="item.image"> {{item.name}}
+            </li>
+          </ul>
+        </div>
+        <div v-else>
+           {{query}} 검색어로 찾을수 없습니다 
+        </div>
+      </div>
+      
+
     </div>
   </div>
   <script src="https://unpkg.com/vue"></script>
