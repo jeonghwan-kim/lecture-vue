@@ -79,7 +79,7 @@
     </ul>
   </div>
   <div v-else>
-    <span v-if="type === 'keyword'">추천 검색어가 없습니다</span>
-    <span v-if="type === 'history'">최근 검색어가 없습니다</span>
+    <span v-if="keywordType">추천 검색어가 없습니다</span>
+    <span v-if="historyType">최근 검색어가 없습니다</span>
   </div>
 </template>
