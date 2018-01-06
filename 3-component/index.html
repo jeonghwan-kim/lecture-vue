@@ -19,16 +19,7 @@
 
       <div class="content">
         <div v-if="submitted">
-          <div v-if="searchResult.length">
-            <ul>
-              <li v-for="item in searchResult">
-                <img v-bind:src="item.image"> {{item.name}}
-              </li>
-            </ul>
-          </div>
-          <div v-else>
-            {{query}} 검색어로 찾을수 없습니다 
-          </div>
+          <search-result v-bind:data="searchResult" v-bind:query="query"></search-result>
         </div>
         <div v-else>
           <ul class="tabs">
@@ -81,4 +72,17 @@
     <input type="text" v-model="inputValue" v-on:keyup="onKeyup" placeholder="검색어를 입력하세요" autofocus>
     <button v-show="inputValue.length" v-on:click="onReset" type="reset" class="btn-reset"></button>
   </form>  
+</template>
+
+<template id="search-result">
+  <div v-if="data.length">
+    <ul>
+      <li v-for="item in data">
+        <img v-bind:src="item.image"> {{item.name}}
+      </li>
+    </ul>
+  </div>
+  <div v-else>
+    {{query}} 검색어로 찾을수 없습니다 
+  </div>
 </template>

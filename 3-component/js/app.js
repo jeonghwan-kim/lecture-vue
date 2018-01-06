@@ -3,6 +3,7 @@ import KeywordModel from './models/KeywordModel.js'
 import HistoryModel from './models/HistoryModel.js'
 
 import FormComponent from './components/FormComponent.js'
+import ResultComponent from './components/ResultComponent.js'
 
 new Vue({
   el: '#app',
@@ -16,7 +17,8 @@ new Vue({
     searchResult: []
   },
   components: {
-    'search-form': FormComponent
+    'search-form': FormComponent,
+    'search-result': ResultComponent
   },
   created() {
     this.selectedTab = this.tabs[0]
