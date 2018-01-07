@@ -6,6 +6,12 @@
     <div class="container">
       <search-form v-bind:value="query" v-on:@submit="onSubmit" 
         v-on:@reset="onReset"></search-form>
+
+      <div class="content">
+        <div v-if="submitted">
+          <search-result v-bind:data="searchResult" v-bind:query="query"></search-result>
+        </div>
+      </div>
     </div>  
   </div>
 </template>
@@ -16,12 +22,13 @@ import SearchModel from './models/SearchModel.js'
 import KeywordModel from './models/KeywordModel.js'
 
 import FormComponent from './components/FormComponent.vue'
+import ResultComponent from './components/ResultComponent.vue'
 
 export default {
   name: 'app',
   data () {
     return {
-      query: 'asdf',
+      query: '',
       submitted: false,
       tabs: ['추천 검색어', '최근 검색어'],
       selectedTab: '',
@@ -32,6 +39,7 @@ export default {
   },
   components: {
     'search-form': FormComponent,
+    'search-result': ResultComponent
   },
   created() {
     this.selectedTab = this.tabs[0]
