@@ -11,6 +11,15 @@
         <div v-if="submitted">
           <search-result v-bind:data="searchResult" v-bind:query="query"></search-result>
         </div>
+        <div v-else>
+          <div v-if="selectedTab === tabs[0]">
+            <list v-bind:data="keywords" type="keywords" v-on:@click="onClickKeyword"></list>
+          </div>
+          <div v-else>
+            <list v-bind:data="history" type="history" v-on:@click="onClickKeyword"
+              v-on:@remove="onClickRemoveHistory"></list>
+          </div>
+        </div>
       </div>
     </div>  
   </div>
@@ -23,6 +32,7 @@ import KeywordModel from './models/KeywordModel.js'
 
 import FormComponent from './components/FormComponent.vue'
 import ResultComponent from './components/ResultComponent.vue'
+import ListComponent from './components/ListComponent.vue'
 
 export default {
   name: 'app',
@@ -39,7 +49,8 @@ export default {
   },
   components: {
     'search-form': FormComponent,
-    'search-result': ResultComponent
+    'search-result': ResultComponent,
+    'list': ListComponent
   },
   created() {
     this.selectedTab = this.tabs[0]
