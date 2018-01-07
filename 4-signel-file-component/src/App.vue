@@ -12,6 +12,7 @@
           <search-result v-bind:data="searchResult" v-bind:query="query"></search-result>
         </div>
         <div v-else>
+          <tabs v-bind:tabs="tabs" v-bind:selected-tab="selectedTab" v-on:@change="onClickTab"></tabs>
           <div v-if="selectedTab === tabs[0]">
             <list v-bind:data="keywords" type="keywords" v-on:@click="onClickKeyword"></list>
           </div>
@@ -33,6 +34,7 @@ import KeywordModel from './models/KeywordModel.js'
 import FormComponent from './components/FormComponent.vue'
 import ResultComponent from './components/ResultComponent.vue'
 import ListComponent from './components/ListComponent.vue'
+import TabComponent from './components/TabComponent.vue'
 
 export default {
   name: 'app',
@@ -50,7 +52,8 @@ export default {
   components: {
     'search-form': FormComponent,
     'search-result': ResultComponent,
-    'list': ListComponent
+    'list': ListComponent,
+    'tabs': TabComponent
   },
   created() {
     this.selectedTab = this.tabs[0]
