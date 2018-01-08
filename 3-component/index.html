@@ -22,12 +22,13 @@
           <search-result v-bind:data="searchResult" v-bind:query="query"></search-result>
         </div>
         <div v-else>
-          <ul class="tabs">
+          <tabs></tabs>
+          <!-- <ul class="tabs">
             <li v-for="tab in tabs" v-bind:class="{active: tab === selectedTab}"
             v-on:click="onClickTab(tab)">
               {{tab}}
             </li>
-          </ul>
+          </ul> -->
 
           <div v-if="selectedTab === tabs[0]">
             <list v-bind:data="keywords" type="keywords" v-on:@click="onClickKeyword"></list>
@@ -82,4 +83,8 @@
     <span v-if="keywordType">추천 검색어가 없습니다</span>
     <span v-if="historyType">최근 검색어가 없습니다</span>
   </div>
+</template>
+
+<template id="tabs">
+
 </template>
